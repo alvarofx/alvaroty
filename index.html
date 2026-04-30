@@ -8,3 +8,73 @@
   <p>YouTube Live View Tracker</p>
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AlvaroYT</title>
+  <style>
+    body{
+      background:#0f0f0f;
+      color:white;
+      font-family:sans-serif;
+      text-align:center;
+      padding-top:100px;
+    }
+
+    input{
+      padding:12px;
+      width:300px;
+      border:none;
+      border-radius:10px;
+    }
+
+    button{
+      padding:12px 20px;
+      border:none;
+      border-radius:10px;
+      margin-left:10px;
+      cursor:pointer;
+    }
+
+    .box{
+      margin-top:40px;
+      font-size:25px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>AlvaroYT 📈</h1>
+
+<input id="video" placeholder="Paste YouTube Video Link">
+<button onclick="track()">Track</button>
+
+<div class="box">
+  <p>Total Views: <span id="views">0</span></p>
+  <p>5 Min Increase: <span id="increase">0</span></p>
+</div>
+
+<script>
+let oldViews = 0;
+
+function randomViews(){
+   return Math.floor(Math.random()*1000000);
+}
+
+function track(){
+
+   let views = randomViews();
+   let increase = views - oldViews;
+
+   document.getElementById("views").innerText = views;
+   document.getElementById("increase").innerText = increase;
+
+   oldViews = views;
+}
+
+setInterval(track,300000);
+</script>
+
+</body>
+</html>
